@@ -16,7 +16,7 @@ tamanhoBordaFundo=50;
 
 anguloRotacao = 8;
 numeroDentesParteGrande=5;
-distanciaVisu = 50;
+distanciaVisu = thickness;
 
 
 //definir modo de exibição
@@ -35,11 +35,36 @@ if(montagem){
     include <tampaEsquerda.scad>;
     include <plataformaBola.scad>;
 }else{
-    include <fundo.scad>;
-    /*
-    include <tras.scad>;    
-    include <tampaDireita.scad>;
-    include <tampaEsquerda.scad>;
-    include <plataformaBola.scad>;
-    */
+    //criar projeção pra corte a laser
+    projection(){
+        translate([10,10,0])
+        include <fundo.scad>;
+        
+        
+        translate([larguraCaixa+10,+10,0]){
+            rotate([-90,0,0])
+            translate([10,distanciaVisu,0])
+            include <tras.scad>;    
+            translate([larguraCaixa+20,0,0]){
+                rotate([0,90,0])
+                include <tampaDireita.scad>;
+
+                translate([alturaParteTras,0,0]){
+                    rotate([0,90,0])
+                    translate([0,0,10])
+                    include <tampaDireita.scad>;
+
+                    translate([alturaParteTras+20,+20,-alturaFrente]){
+                        rotate([anguloRotacao,0,0])
+                        include <plataformaBola.scad>;
+                        translate([larguraCaixa+10,0,0])
+                        include <curvas.scad>;
+                    }
+                    
+                    
+                }
+            }
+        }
+    }
+    
 }
