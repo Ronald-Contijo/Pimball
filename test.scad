@@ -4,7 +4,7 @@ include <lasercut.scad>; //importação da biblioteca com funcionalidades muito 
 $fn=60;
 thickness = 3.1;//define grossura do mdf
 
-fator = 1/8;//variavel que define a escala
+fator = 1;//variavel que define a escala
 larguraCaixa = 400*fator;
 comprimentoCaixa = 600*fator;
 comprimentoBolaPassa = 550*fator;
@@ -20,7 +20,7 @@ distanciaVisu = 50;
 
 
 //definir modo de exibição
-montagem = false;
+montagem = true;
 
 //definir cor do mdf
 cor = [255/255,192/255,203/255];
