@@ -18,7 +18,7 @@ anguloRotacao = 8;
 numeroDentesParteGrande=5;
 distanciaVisu = thickness;
 
-
+ 
 //definir modo de exibição
 montagem = true;
 
